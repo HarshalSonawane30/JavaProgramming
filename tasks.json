@@ -1,0 +1,48 @@
+﻿{
+    "version":  "2.0.0",
+    "tasks":  [
+                  {
+                      "label":  "build Java",
+                      "type":  "shell",
+                      "command":  "javac",
+                      "args":  [
+                                   "-encoding",
+                                   "UTF-8",
+                                   "${file}"
+                               ],
+                      "group":  {
+                                    "kind":  "build",
+                                    "isDefault":  false
+                                },
+                      "problemMatcher":  "$javac",
+                      "options":  {
+                                      "cwd":  "${fileDirname}"
+                                  }
+                  },
+                  {
+                      "label":  "build and run Java",
+                      "type":  "shell",
+                      "command":  "javac \"${file}\" \u0026\u0026 java -cp \"${fileDirname}\" \"${fileBasenameNoExtension}\" \u003c \"${fileDirname}\\input.txt\" \u003e \"${fileDirname}\\output.txt\"",
+                      "group":  {
+                                    "kind":  "build",
+                                    "isDefault":  true
+                                },
+                      "problemMatcher":  "$javac",
+                      "presentation":  {
+                                           "clear":  true,
+                                           "panel":  "shared",
+                                           "reveal":  "always"
+                                       },
+                      "options":  {
+                                      "cwd":  "${fileDirname}",
+                                      "shell":  {
+                                                    "executable":  "cmd.exe",
+                                                    "args":  [
+                                                                 "/d",
+                                                                 "/c"
+                                                             ]
+                                                }
+                                  }
+                  }
+              ]
+}

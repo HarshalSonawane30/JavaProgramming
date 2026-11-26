@@ -6,8 +6,6 @@
 // *      *
 // *      *
 // *      *
-
-
 import java.util.*;
 
 public class starPattern27 {
